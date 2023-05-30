@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.employerfx.employeeapp.view.ManageEmplController">
+   <left>
+      <VBox prefHeight="209.0" prefWidth="119.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" text="first name">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="7.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" text="last name">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="7.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" text="salary">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="7.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" text="phone">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="7.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" text="skills">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="7.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" text="job title ">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="7.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" text="manager">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="7.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" text="hire date">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="7.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox prefHeight="209.0" prefWidth="593.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="empFirstName">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="empLastName">
+               <VBox.margin>
+                  <Insets top="2.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="empSalary">
+               <VBox.margin>
+                  <Insets top="2.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="empPhone">
+               <VBox.margin>
+                  <Insets top="2.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="empSkills">
+               <VBox.margin>
+                  <Insets top="2.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="empJobTitle">
+               <VBox.margin>
+                  <Insets top="3.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="empManager">
+               <VBox.margin>
+                  <Insets top="2.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="empHireDate">
+               <VBox.margin>
+                  <Insets top="2.0" />
+               </VBox.margin>
+            </TextField>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <TableView fx:id="employeeTable" prefHeight="381.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+      <columns>
+          <TableColumn fx:id="idCol" prefWidth="73.0" text="ID" />
+          <TableColumn fx:id="firstNameCol" prefWidth="88.0" text="First Name" />
+            <TableColumn fx:id="lastNameCol" prefWidth="85.0" text="last Name" />
+            <TableColumn fx:id="salaryCol" prefWidth="73.0" text="salary" />
+            <TableColumn fx:id="phoneCol" prefWidth="97.0" text="phone" />
+            <TableColumn fx:id="skillsCol" prefWidth="96.0" text="skills" />
+            <TableColumn fx:id="titleCol" minWidth="0.0" prefWidth="104.0" text="job title" />
+            <TableColumn fx:id="managerCol" text="manager" />
+            <TableColumn fx:id="hireCol" prefWidth="103.0" text="hire date" />
+            <TableColumn fx:id="deleteCol" prefWidth="100.0" text="Delete" />
+            <TableColumn fx:id="editCol" prefWidth="100.0" text="Edit" />
+
+      </columns>
+      </TableView>
+   </bottom>
+   <right>
+      <VBox prefHeight="219.0" prefWidth="261.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#addEmployeeController" text="add Employee">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="20.0" right="10.0" top="30.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#addFromtxtFile" text="add From txt file ">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="20.0" right="10.0" top="30.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#addFromExcelFile" text="add From excel file">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="20.0" right="10.0" top="30.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </right>
+</BorderPane>

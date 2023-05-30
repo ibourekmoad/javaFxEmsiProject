@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.employerfx.employeeapp.view.EditEmployeeController">
+    <VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" spacing="10">
+        <TextField fx:id="firstNameField" promptText="First Name" />
+        <TextField fx:id="lastNameField" promptText="Last Name" />
+        <TextField fx:id="salaryField" promptText="Salary" />
+        <TextField fx:id="phoneField" promptText="Phone" />
+        <TextField fx:id="skillsField" promptText="Skills" />
+        <TextField fx:id="jobTitleField" promptText="Job Title" />
+        <TextField fx:id="managerField" promptText="Manager" />
+        <TextField fx:id="hireDateField" promptText="Hire Date" />
+        <Button fx:id="saveButton" onAction="#saveEmployee" text="Save" />
+    </VBox>
+</AnchorPane>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.employerfx.employeeapp.view.HelloController">
+   <left>
+      <AnchorPane prefHeight="500.0" prefWidth="350.0" style="-fx-background-color: #0579ff;" BorderPane.alignment="CENTER">
+         <children>
+            <Text layoutX="69.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcom Employee" wrappingWidth="211.7451171875">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="500.0" prefWidth="401.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="usernameTestfield" layoutX="90.0" layoutY="217.0" promptText="user Name" />
+            <PasswordField fx:id="passwordField" layoutX="90.0" layoutY="258.0" promptText="password" />
+            <Button fx:id="loginButton" layoutX="145.0" layoutY="343.0" mnemonicParsing="false" onAction="#loginButtonOnAction" text="login" />
+            <Text layoutX="135.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Login" wrappingWidth="73.7294921875" />
+            <Label fx:id="loginErrorLabel" layoutX="90.0" layoutY="309.0" prefHeight="16.0" prefWidth="170.0" textAlignment="CENTER" textFill="RED" />
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>

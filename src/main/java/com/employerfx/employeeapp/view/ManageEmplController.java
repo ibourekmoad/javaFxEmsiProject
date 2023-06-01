@@ -19,14 +19,12 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
-import java.io.IOException;
+
+import java.io.*;
+
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
@@ -74,7 +72,6 @@ public class ManageEmplController implements Initializable {
     private TextField empHireDate;
     @FXML
     private TableColumn deleteCol;
-
     @FXML
     private TableColumn editCol;
 
@@ -115,6 +112,8 @@ public class ManageEmplController implements Initializable {
 
                     editButton.setOnAction(event -> {
                         Employee employee = getTableView().getItems().get(getIndex());
+                        System.out.println("set on Action");
+                        System.out.println(employee);
 
                         openEditEmployeeDialog(employee);
                     });
@@ -150,15 +149,18 @@ public class ManageEmplController implements Initializable {
 
         // Get the controller instance from the loader
         EditEmployeeController editController = loader.getController();
+        System.out.println("openEditEmployeeDialog:called");
+        System.out.println(employee);
 
         // Pass the selected employee to the edit controller
-        editController.setEmployee(employee);
+        editController.setEmployee(employee); // Set the employee object
 
         // Set the scene for the edit stage
         Scene editScene = new Scene(editRoot);
         editStage.setScene(editScene);
         editStage.show();
     }
+
 
     private void deleteEmployee(Employee employee) {
 
@@ -355,5 +357,40 @@ public class ManageEmplController implements Initializable {
         empHireDate.clear();
 
         loadData();
+    }
+    public void exportToTextFile() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save Text File");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
+        File selectedFile = fileChooser.showSaveDialog(null);
+
+        if (selectedFile != null) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(selectedFile))) {
+                // Write the header row
+                writer.write("ID,First Name,Last Name,Salary,Phone,Skills,Job Title,Manager,Hire Date");
+                writer.newLine();
+
+                // Write the employee data
+                for (Employee employee : employeeTable.getItems()) {
+                    StringBuilder employeeData = new StringBuilder();
+                    employeeData.append(employee.getId()).append(",");
+                    employeeData.append(employee.getFirstName()).append(",");
+                    employeeData.append(employee.getLastName()).append(",");
+                    employeeData.append(employee.getSalary()).append(",");
+                    employeeData.append(employee.getPhone()).append(",");
+                    employeeData.append(String.join(";", employee.getSkills())).append(",");
+                    employeeData.append(employee.getJobTitle()).append(",");
+                    employeeData.append(employee.isIsManager()).append(",");
+                    employeeData.append(employee.getHireDate());
+
+                    writer.write(employeeData.toString());
+                    writer.newLine();
+                }
+
+                System.out.println("Employee data exported to the text file.");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

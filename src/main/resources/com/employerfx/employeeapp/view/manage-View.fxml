@@ -145,7 +145,7 @@
       </TableView>
    </bottom>
    <right>
-      <VBox prefHeight="219.0" prefWidth="261.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="188.0" prefWidth="261.0" BorderPane.alignment="CENTER">
          <children>
             <Button mnemonicParsing="false" onAction="#addEmployeeController" text="add Employee">
                <VBox.margin>
@@ -154,12 +154,17 @@
             </Button>
             <Button mnemonicParsing="false" onAction="#addFromtxtFile" text="add From txt file ">
                <VBox.margin>
-                  <Insets bottom="10.0" left="20.0" right="10.0" top="30.0" />
+                  <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#exportToTextFile" prefHeight="24.0" prefWidth="133.0" text="export to txt">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
                </VBox.margin>
             </Button>
             <Button mnemonicParsing="false" onAction="#addFromExcelFile" text="add From excel file">
                <VBox.margin>
-                  <Insets bottom="10.0" left="20.0" right="10.0" top="30.0" />
+                  <Insets bottom="25.0" left="20.0" right="10.0" top="10.0" />
                </VBox.margin>
             </Button>
          </children>

@@ -67,11 +67,42 @@ public class MariaDBDaoEmployees implements DaoEmployees {
             e.printStackTrace();
         }
     }
+    private boolean isEmployeeExists(Employee employee) {
+        try (Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD)) {
+            String sql = "SELECT COUNT(*) FROM employees WHERE firstName = ? AND lastName = ? " +
+                    "AND salary = ? AND phone = ? AND jobTitle = ? AND isManager = ? AND hireDate = ?";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, employee.getFirstName());
+            statement.setString(2, employee.getLastName());
+            statement.setDouble(3, employee.getSalary());
+            statement.setString(4, employee.getPhone());
+            statement.setString(5, employee.getJobTitle());
+            statement.setBoolean(6, employee.isIsManager());
+            statement.setDate(7, new java.sql.Date(employee.getHireDate().getTime()));
+
+            ResultSet resultSet = statement.executeQuery();
+            resultSet.next();
+            int count = resultSet.getInt(1);
+
+            return count > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
 
 
     @Override
     public void saveEmployeeNoId(Employee employee) {
         try (Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD)) {
+            // Check if the employee already exists
+            if (isEmployeeExists(employee)) {
+                System.out.println("Employee already exists. Cannot add duplicate employee.");
+                return;
+            }
+
             // Insert into the employees table
             String sql = "INSERT INTO employees (firstName, lastName, salary, phone, jobTitle, isManager, hireDate) " +
                     "VALUES (?, ?, ?, ?, ?, ?, ?)";

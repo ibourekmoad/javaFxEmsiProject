@@ -17,10 +17,11 @@ public class EmployeService {
         MariaDBDaoEmployees dao = new MariaDBDaoEmployees();
         dao.deleteEmployee(dao.getEmployeeById(id).getId());
     }
-    public void updateEmployee(long id) {
+    public void updateEmployee(Employee employee) {
         MariaDBDaoEmployees dao = new MariaDBDaoEmployees();
-        dao.updateEmployee(dao.getEmployeeById(id));
+        dao.updateEmployee(employee);
     }
+
     public Employee getEmployeeById(long id) {
         MariaDBDaoEmployees dao = new MariaDBDaoEmployees();
         return dao.getEmployeeById(id);

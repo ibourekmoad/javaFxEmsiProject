@@ -40,10 +40,17 @@ public class EditEmployeeController implements Initializable {
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
+        initializeFields();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        initializeFields();
+    }
+
+    private void initializeFields() {
+        System.out.println("initializeFields: called");
+        System.out.println(employee);
         if (employee != null) {
             firstNameField.setText(employee.getFirstName());
             lastNameField.setText(employee.getLastName());
@@ -55,6 +62,7 @@ public class EditEmployeeController implements Initializable {
             hireDateField.setText(employee.getHireDate().toString());
         }
     }
+
     @FXML
     private void saveEmployee() {
         // Retrieve the edited values from the fields
@@ -81,7 +89,7 @@ public class EditEmployeeController implements Initializable {
 
             // Save the updated employee to your data source
             EmployeService employeeService = new EmployeService();
-            employeeService.updateEmployee(employee.getId());
+            employeeService.updateEmployee(employee);
 
             Stage currentStage = (Stage) saveButton.getScene().getWindow();
             currentStage.close();        }
